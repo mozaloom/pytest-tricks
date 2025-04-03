@@ -12,3 +12,8 @@ lint:
 	pylint --disable=R,C *.py
 
 all: install lint test format
+
+.PHONY: list
+list:
+	@awk -F':' '/^[a-zA-Z0-9_-]+:/ {print $$1}' Makefile
+
